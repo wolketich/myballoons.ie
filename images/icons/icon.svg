@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="256" fill="#7A9E77"/>
+  <!-- Balloon 1 - left -->
+  <ellipse cx="186" cy="195" rx="62" ry="78" fill="#F7F5F0" opacity="0.92"/>
+  <line x1="186" y1="273" x2="198" y2="330" stroke="#F7F5F0" stroke-width="4" stroke-linecap="round"/>
+  <!-- Balloon 2 - centre (slightly taller) -->
+  <ellipse cx="256" cy="185" rx="68" ry="85" fill="#fff" opacity="0.98"/>
+  <line x1="256" y1="270" x2="256" y2="340" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <!-- Balloon 3 - right -->
+  <ellipse cx="326" cy="195" rx="62" ry="78" fill="#F7F5F0" opacity="0.92"/>
+  <line x1="326" y1="273" x2="314" y2="330" stroke="#F7F5F0" stroke-width="4" stroke-linecap="round"/>
+  <!-- String knot -->
+  <circle cx="256" cy="342" r="6" fill="#F7F5F0"/>
+  <!-- Ribbon / string down -->
+  <path d="M256 348 Q230 370 248 395 Q268 420 256 440" stroke="#F7F5F0" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Shine on centre balloon -->
+  <ellipse cx="241" cy="162" rx="16" ry="22" fill="white" opacity="0.35" transform="rotate(-20 241 162)"/>
+</svg>

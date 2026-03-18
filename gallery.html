@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — MyBalloons Dublin | Custom Gift Balloon Portfolio</title>
+  <meta name="description" content="Browse our gallery of custom gift balloon arrangements — birthdays, anniversaries, baby showers, Valentine's Day and more. All handcrafted in Dublin.">
+  <link rel="canonical" href="https://myballoons.ie/gallery.html">
+  <meta property="og:title" content="Gallery | MyBalloons Dublin">
+  <meta property="og:description" content="See our portfolio of luxury balloon gifts for every occasion, all handcrafted in Dublin.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .gallery-filter-btn {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.2rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--ivory-dark);
+      background: var(--white);
+      color: var(--charcoal-mid);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .gallery-filter-btn:hover { border-color: var(--rose-light); color: var(--rose); }
+    .gallery-filter-btn.active { background: var(--rose); border-color: var(--rose); color: var(--white); }
+    .gallery-masonry {
+      columns: 3;
+      column-gap: 1rem;
+    }
+    .gallery-masonry .gallery-item {
+      aspect-ratio: unset;
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: var(--radius-sm);
+    }
+    .gallery-masonry .gallery-item:nth-child(3n+1) { aspect-ratio: 4/5; }
+    .gallery-masonry .gallery-item:nth-child(3n+2) { aspect-ratio: 1; }
+    .gallery-masonry .gallery-item:nth-child(3n+3) { aspect-ratio: 3/4; }
+    @media (max-width: 768px) { .gallery-masonry { columns: 2; } }
+    @media (max-width: 480px) { .gallery-masonry { columns: 1; } }
+  </style>
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#C5626A">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="MyBalloons">
+  <link rel="apple-touch-icon" href="images/icons/icon-192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="images/icons/icon-152.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icons/icon-192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/icons/icon-96.png">
+</head>
+<body class="nav-solid">
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">My<span>Balloons</span></a>
+    <div class="nav-links">
+      <a href="collections.html">Collections</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="reviews.html">Reviews</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="custom-order.html" class="nav-cta btn">Order Now</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="collections.html">Collections</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="reviews.html">Reviews</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <div class="mobile-menu-small"><a href="delivery.html">Delivery Info</a><a href="custom-order.html">Custom Order</a></div>
+</div>
+
+<div class="page-header">
+  <div class="container">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>›</span><span>Gallery</span></nav>
+    <span class="section-label">Our Work</span>
+    <h1 style="font-size:clamp(2.2rem,5vw,4rem);margin-top:0.5rem;">Made with Love,<br>Delivered with Care</h1>
+    <p class="lead" style="max-width:540px;margin-top:1rem;">A selection of our favourite custom balloon arrangements, each one made for a real occasion and a real moment worth celebrating.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Filters -->
+    <div class="gallery-filters" role="group" aria-label="Filter gallery">
+      <button class="gallery-filter-btn active" data-filter="all">All</button>
+      <button class="gallery-filter-btn" data-filter="birthday">Birthday</button>
+      <button class="gallery-filter-btn" data-filter="valentine">Valentine's</button>
+      <button class="gallery-filter-btn" data-filter="baby">Baby</button>
+      <button class="gallery-filter-btn" data-filter="anniversary">Anniversary</button>
+      <button class="gallery-filter-btn" data-filter="mothers-day">Mother's Day</button>
+      <button class="gallery-filter-btn" data-filter="rose-box">Rose Boxes</button>
+      <button class="gallery-filter-btn" data-filter="kids">Kids</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-masonry" id="gallery">
+
+      <div class="gallery-item" data-category="birthday" data-src="images/gallery/birthday-01.jpg" data-alt="Pink and gold birthday balloon arrangement Dublin" style="background:linear-gradient(135deg,var(--rose-pale),var(--gold-light));">
+        <div class="card-img-placeholder" style="min-height:260px;font-size:3rem;border-radius:0;background:none;">🎈</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="rose-box" data-src="images/gallery/rose-box-01.jpg" data-alt="Luxury rose balloon box Dublin delivery" style="background:linear-gradient(135deg,#F5E6E7,#E8D5B0);">
+        <div class="card-img-placeholder" style="min-height:200px;font-size:3rem;border-radius:0;background:none;">🌹</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="valentine" data-src="images/gallery/valentine-01.jpg" data-alt="Valentine's Day balloon gift Dublin" style="background:linear-gradient(135deg,#E8A0A5,#C5626A30);">
+        <div class="card-img-placeholder" style="min-height:240px;font-size:3rem;border-radius:0;background:none;">💕</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="baby" data-src="images/gallery/baby-01.jpg" data-alt="Baby shower balloon arrangement Dublin" style="background:linear-gradient(135deg,#D4E8F0,#F5E6E7);">
+        <div class="card-img-placeholder" style="min-height:200px;font-size:3rem;border-radius:0;background:none;">🍼</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="kids" data-src="images/gallery/kids-minecraft-01.jpg" data-alt="Minecraft themed birthday balloon Dublin" style="background:linear-gradient(135deg,#C8E6C9,#F5E6E7);">
+        <div class="card-img-placeholder" style="min-height:260px;font-size:3rem;border-radius:0;background:none;">🦸</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="anniversary" data-src="images/gallery/anniversary-01.jpg" data-alt="Anniversary balloon gift with roses Dublin" style="background:linear-gradient(135deg,#E8D5B0,#F5E6E7);">
+        <div class="card-img-placeholder" style="min-height:200px;font-size:3rem;border-radius:0;background:none;">✨</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="mothers-day" data-src="images/gallery/mothers-day-01.jpg" data-alt="Mother's Day balloon gift Dublin" style="background:linear-gradient(135deg,#FADADD,#E8D5B0);">
+        <div class="card-img-placeholder" style="min-height:240px;font-size:3rem;border-radius:0;background:none;">🌸</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="birthday" data-src="images/gallery/birthday-02.jpg" data-alt="Gold 30th birthday balloon box Dublin" style="background:linear-gradient(135deg,#E8D5B0,#C9A96E30);">
+        <div class="card-img-placeholder" style="min-height:200px;font-size:3rem;border-radius:0;background:none;">🎂</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="rose-box" data-src="images/gallery/rose-box-02.jpg" data-alt="Pink rose balloon box surprise Dublin" style="background:linear-gradient(135deg,var(--rose-pale),#E8A0A540);">
+        <div class="card-img-placeholder" style="min-height:260px;font-size:3rem;border-radius:0;background:none;">🎀</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="valentine" data-src="images/gallery/valentine-02.jpg" data-alt="Valentine teddy and balloon gift Dublin" style="background:linear-gradient(135deg,#C5626A20,#F5E6E7);">
+        <div class="card-img-placeholder" style="min-height:200px;font-size:3rem;border-radius:0;background:none;">🧸</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="baby" data-src="images/gallery/baby-02.jpg" data-alt="New baby balloon arrangement boy Dublin" style="background:linear-gradient(135deg,#BFD9F0,var(--white));">
+        <div class="card-img-placeholder" style="min-height:240px;font-size:3rem;border-radius:0;background:none;">👶</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+      <div class="gallery-item" data-category="anniversary" data-src="images/gallery/anniversary-02.jpg" data-alt="Luxury anniversary balloon box Dublin" style="background:linear-gradient(135deg,#2C2320,#4A2D2A);">
+        <div class="card-img-placeholder" style="min-height:200px;font-size:3rem;border-radius:0;background:none;color:var(--gold-light);">💍</div>
+        <div class="gallery-overlay"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></div>
+      </div>
+
+    </div><!-- /.gallery-masonry -->
+
+    <!-- Lightbox -->
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-prev" aria-label="Previous">&#8592;</button>
+      <img class="lightbox-img" src="" alt="">
+      <button class="lightbox-next" aria-label="Next">&#8594;</button>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center" style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--ivory-dark);">
+      <span class="section-label">Love What You See?</span>
+      <h3 style="margin-top:0.5rem;margin-bottom:1rem;">Let's Create Something Just for You</h3>
+      <a href="custom-order.html" class="btn btn--primary btn--lg">Start Your Custom Order</a>
+      <a href="collections.html" class="btn btn--outline btn--lg" style="margin-left:1rem;">Browse Collections</a>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">My<span>Balloons</span></div>
+        <p>Luxury custom gift balloons for every occasion, handcrafted with love and delivered across Dublin, Ireland.</p>
+        <div class="footer-contact-info">
+          <div class="footer-contact-row">
+            <a href="tel:0851140753" class="footer-contact-call"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.5 2.18 2 2 0 012.45 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>085 114 0753</a>
+            <a href="https://wa.me/353851140753" class="footer-contact-wa" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+          </div>
+          <div class="footer-contact-row">
+            <a href="tel:0894714339" class="footer-contact-call"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.5 2.18 2 2 0 012.45 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>089 471 4339</a>
+            <a href="https://wa.me/353894714339" class="footer-contact-wa" target="_blank" rel="noopener"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+          </div>
+          <a href="mailto:hello@myballoons.ie" class="footer-contact-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>hello@myballoons.ie</a>
+          <a href="mailto:order@myballoons.ie" class="footer-contact-email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>order@myballoons.ie</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h6>Collections</h6>
+        <ul>
+          <li><a href="collections/birthday-balloons.html">Birthday Balloons</a></li>
+          <li><a href="collections/baby-balloons.html">Baby Balloons</a></li>
+          <li><a href="collections/valentines-balloons.html">Valentine's Balloons</a></li>
+          <li><a href="collections/mothers-day-balloons.html">Mother's Day</a></li>
+          <li><a href="collections/anniversary-balloons.html">Anniversary</a></li>
+          <li><a href="collections/rose-balloon-boxes.html">Rose Balloon Boxes</a></li>
+          <li><a href="collections.html">All Collections →</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Information</h6>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="delivery.html">Delivery Info</a></li>
+          <li><a href="case-studies/">Case Studies</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h6>Order</h6>
+        <ul>
+          <li><a href="custom-order.html">Custom Order</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="seasonal/birthday-balloons-dublin.html">Birthday — Dublin</a></li>
+          <li><a href="seasonal/mothers-day-dublin.html">Mother's Day — Dublin</a></li>
+          <li><a href="seasonal/valentines-dublin.html">Valentine's — Dublin</a></li>
+          <li><a href="seasonal/baby-shower-dublin.html">Baby Shower — Dublin</a></li>
+        </ul>
+        <div style="margin-top:1.5rem;">
+          <p style="font-size:0.78rem;color:rgba(255,255,255,0.4);margin-bottom:0.4rem;">Open every day</p>
+          <p style="font-size:0.88rem;color:rgba(255,255,255,0.65);">8:00 – 18:00</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MyBalloons Dublin. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="https://instagram.com/myballoons" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/353851140753" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+
+<!-- Mobile Bottom Bar -->
+<nav class="mob-bar" aria-label="Quick navigation">
+  <div class="mob-bar-inner">
+    <a href="index.html" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H5a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
+      Home
+    </a>
+    <a href="collections.html" aria-label="Collections">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Collections
+    </a>
+    <a href="custom-order.html" class="mob-bar--cta" aria-label="Order Now">
+      <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Order Now
+    </a>
+    <a href="https://wa.me/353851140753" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+      WhatsApp
+    </a>
+    <a href="gallery.html" aria-label="Gallery">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      Gallery
+    </a>
+  </div>
+</nav>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then(reg => console.log('[SW] Registered:', reg.scope))
+          .catch(err => console.warn('[SW] Failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>

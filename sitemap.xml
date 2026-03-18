@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://myballoons.ie/</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://myballoons.ie/collections.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://myballoons.ie/gallery.html</loc><lastmod>2025-01-01</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/custom-order.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://myballoons.ie/about.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://myballoons.ie/reviews.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://myballoons.ie/faq.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://myballoons.ie/delivery.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://myballoons.ie/contact.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+
+  <!-- Collection pages -->
+  <url><loc>https://myballoons.ie/collections/birthday-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/baby-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/valentines-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/mothers-day-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/anniversary-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/kids-character-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/photo-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/rose-balloon-boxes.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/teddy-balloon-gifts.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/luxury-surprise-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/personalised-gift-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/collections/seasonal-event-balloons.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Seasonal landing pages -->
+  <url><loc>https://myballoons.ie/seasonal/mothers-day-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/seasonal/valentines-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/seasonal/birthday-balloons-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/seasonal/baby-shower-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://myballoons.ie/seasonal/personalised-gift-balloons-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://myballoons.ie/seasonal/anniversary-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://myballoons.ie/seasonal/christmas-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.7</priority></url>
+
+  <!-- Case studies -->
+  <url><loc>https://myballoons.ie/case-studies/</loc><lastmod>2025-01-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://myballoons.ie/case-studies/personalised-birthday-balloon-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://myballoons.ie/case-studies/mothers-day-rose-balloon-box-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://myballoons.ie/case-studies/minecraft-birthday-balloon-kids-dublin.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://myballoons.ie/case-studies/valentines-teddy-balloon-gift-photo.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://myballoons.ie/case-studies/luxury-anniversary-balloon-box-roses.html</loc><lastmod>2025-01-01</lastmod><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+</urlset>
