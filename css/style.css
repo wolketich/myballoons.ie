@@ -1276,5 +1276,6 @@ h1 {
 }
 .footer-contact-email:hover { color: var(--white); }
 
+a[aria-label="Collections"] { padding-right: 15px }
 /* Restore mob-bar CTA hover to rose */
 .mob-bar a.mob-bar--cta:hover { background: #a84f57 !important; }
