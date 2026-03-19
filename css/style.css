@@ -359,7 +359,6 @@ body.nav-solid .site-nav:not(.scrolled) .nav-cta {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  animation: fadeInUp 1s 0.8s both;
 }
 .hero-scroll-line {
   width: 1px;
