@@ -245,7 +245,7 @@ body.nav-solid .site-nav:not(.scrolled) .nav-cta {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 0.9rem 2rem;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-lg);
   transition: all var(--transition);
   cursor: pointer;
 }
