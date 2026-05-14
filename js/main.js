@@ -231,16 +231,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const submitToEndpoint = async (form) => {
     const action = form.getAttribute('action');
-    const method = (form.getAttribute('method') || 'POST').toUpperCase();
+    const method = (form.getAttribute('method') || '').toUpperCase();
     const thankYouUrl = form.dataset.thankyou || 'thank-you.html';
 
-    console.log('FORM:', form);
-    console.log('ACTION:', form.getAttribute('action'));
-    console.log('METHOD:', form.getAttribute('method'));
+    if (!action) {
+      throw new Error('This form is missing a submission endpoint.');
+    }
 
-    if (!action || method === 'GET') {
-      window.location.href = thankYouUrl;
-      return;
+    if (method !== 'POST') {
+      throw new Error('This form is not configured to submit correctly.');
     }
 
     let response;
@@ -250,7 +249,12 @@ document.addEventListener('DOMContentLoaded', () => {
         body: new FormData(form),
         headers: { Accept: 'application/json' }
       });
-    } catch {
+    } catch (error) {
+      console.error('[MyBalloons] Formspree request failed before receiving a response.', {
+        action,
+        method,
+        error
+      });
       throw new Error('Sorry, your enquiry could not be sent. Please try again or contact us directly.');
     }
 
@@ -267,8 +271,21 @@ document.addEventListener('DOMContentLoaded', () => {
     throw new Error(formspreeErrors || 'Sorry, your enquiry could not be sent. Please try again or contact us directly.');
   };
 
-  document.querySelectorAll('[data-validate]').forEach(form => {
-    form.addEventListener('submit', async e => {
+  const handleDelegatedFieldChange = (e) => {
+    const field = e.target;
+    const form = field?.closest?.('form[data-validate]');
+    if (!form || !field.matches?.('input, textarea, select')) return;
+
+    clearFieldError(form, field);
+  };
+
+  if (!document.documentElement.dataset.formDelegationBound) {
+    document.documentElement.dataset.formDelegationBound = 'true';
+
+    document.addEventListener('submit', async e => {
+      const form = e.target?.closest?.('form[data-validate]');
+      if (!form) return;
+
       e.preventDefault();
       clearSubmitError(form);
 
@@ -278,19 +295,23 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       setSubmitting(form, true);
+
       try {
         await submitToEndpoint(form);
       } catch (error) {
+        console.error('[MyBalloons] Form submission failed.', {
+          action: form.getAttribute('action'),
+          method: form.getAttribute('method'),
+          error
+        });
         showSubmitError(form, error.message);
         setSubmitting(form, false);
       }
     });
 
-    form.querySelectorAll('input, textarea, select').forEach(field => {
-      field.addEventListener('input', () => clearFieldError(form, field));
-      field.addEventListener('change', () => clearFieldError(form, field));
-    });
-  });
+    document.addEventListener('input', handleDelegatedFieldChange);
+    document.addEventListener('change', handleDelegatedFieldChange);
+  }
 
   // ---- Character count ----
   document.querySelectorAll('[data-maxchars]').forEach(el => {
