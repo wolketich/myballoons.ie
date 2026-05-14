@@ -102,7 +102,7 @@ All contact info is already set to:
 - **WhatsApp 2:** https://wa.me/353894714339
 - **Email 1:** hello@myballoons.ie
 - **Email 2:** order@myballoons.ie
-- **Instagram:** https://instagram.com/myballoons
+- **Instagram:** https://instagram.com/myballoons.ie
 
 To change any of these, use **Find & Replace All** (Ctrl+H / Cmd+H) across the whole folder in your text editor.
 
