@@ -3,8 +3,8 @@
    Strategy: Cache-first for assets, network-first for pages
    ============================================================ */
 
-const CACHE_NAME = 'myballoons-v1';
-const ASSETS_CACHE = 'myballoons-assets-v1';
+const CACHE_NAME = 'myballoons-v2';
+const ASSETS_CACHE = 'myballoons-assets-v2';
 
 // Static assets to pre-cache on install
 const PRECACHE_ASSETS = [
@@ -21,7 +21,7 @@ const PRECACHE_ASSETS = [
   '/thank-you.html',
   '/404.html',
   '/css/style.css',
-  '/js/main.js',
+  '/js/main.js?v=20260514-forms',
   '/manifest.json',
   '/offline.html'
 ];
@@ -73,10 +73,28 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Static assets (CSS, JS, images): cache-first
+  // Scripts/styles: network-first so form fixes and styling changes are not trapped by an old cache.
   if (
     url.pathname.startsWith('/css/') ||
-    url.pathname.startsWith('/js/') ||
+    url.pathname.startsWith('/js/')
+  ) {
+    event.respondWith(
+      caches.open(ASSETS_CACHE).then(cache =>
+        fetch(request).then(response => {
+          if (response.ok) cache.put(request, response.clone());
+          return response;
+        }).catch(() =>
+          cache.match(request).then(cached =>
+            cached || new Response('Asset not available offline', { status: 503 })
+          )
+        )
+      )
+    );
+    return;
+  }
+
+  // Images and other static media: cache-first
+  if (
     url.pathname.startsWith('/images/') ||
     url.pathname.match(/\.(ico|png|jpg|jpeg|webp|svg|woff2?)$/)
   ) {
