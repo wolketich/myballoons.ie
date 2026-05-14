@@ -125,55 +125,168 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Form Validation ----
-  document.querySelectorAll('[data-validate]').forEach(form => {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      let valid = true;
+  // ---- Form Validation + Submission ----
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      form.querySelectorAll('[required]').forEach(field => {
-        const val = field.value.trim();
-        const group = field.closest('.form-group');
-        const errEl = group?.querySelector('.form-error');
-        const isInvalid = !val || (field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val));
-        field.classList.toggle('error', isInvalid);
-        if (errEl) errEl.textContent = !val ? 'This field is required.' : (field.type === 'email' && isInvalid ? 'Please enter a valid email address.' : '');
-        if (isInvalid) valid = false;
+  const getErrorElement = (field) => {
+    const group = field.closest('.form-group');
+    if (!group) return null;
+
+    let errEl = group.querySelector('.form-error');
+    if (!errEl) {
+      errEl = document.createElement('span');
+      errEl.className = 'form-error';
+      group.appendChild(errEl);
+    }
+
+    return errEl;
+  };
+
+  const setFieldError = (field, message) => {
+    const hasError = Boolean(message);
+    field.classList.toggle('error', hasError);
+    if (hasError) field.setAttribute('aria-invalid', 'true');
+    else field.removeAttribute('aria-invalid');
+
+    const errEl = getErrorElement(field);
+    if (errEl) errEl.textContent = message || '';
+  };
+
+  const clearFieldError = (form, field) => {
+    if (field.type === 'radio' && field.name) {
+      form.querySelectorAll('input[type="radio"]').forEach(input => {
+        if (input.name === field.name) {
+          input.classList.remove('error');
+          input.removeAttribute('aria-invalid');
+        }
       });
+    } else {
+      field.classList.remove('error');
+      field.removeAttribute('aria-invalid');
+    }
 
-      if (valid) {
-        const thankYouUrl = form.dataset.thankyou || 'thank-you.html';
-        window.location.href = thankYouUrl;
-      } else {
+    const errEl = getErrorElement(field);
+    if (errEl) errEl.textContent = '';
+  };
+
+  const validateForm = (form) => {
+    let valid = true;
+    const checkedRadioGroups = new Set();
+
+    form.querySelectorAll('[required]').forEach(field => {
+      if (field.type === 'radio' && field.name) {
+        if (checkedRadioGroups.has(field.name)) return;
+        checkedRadioGroups.add(field.name);
+
+        const radioGroup = [...form.querySelectorAll('input[type="radio"]')].filter(input => input.name === field.name);
+        const isInvalid = !radioGroup.some(input => input.checked);
+        radioGroup.forEach(input => {
+          input.classList.toggle('error', isInvalid);
+          if (isInvalid) input.setAttribute('aria-invalid', 'true');
+          else input.removeAttribute('aria-invalid');
+        });
+        const errEl = getErrorElement(field);
+        if (errEl) errEl.textContent = isInvalid ? 'Please choose an option.' : '';
+        if (isInvalid) valid = false;
+        return;
+      }
+
+      const value = field.value.trim();
+      const isMissing = !value;
+      const isInvalidEmail = field.type === 'email' && value && !emailPattern.test(value);
+      const message = isMissing ? 'This field is required.' : (isInvalidEmail ? 'Please enter a valid email address.' : '');
+
+      setFieldError(field, message);
+      if (message) valid = false;
+    });
+
+    return valid;
+  };
+
+  const setSubmitting = (form, isSubmitting) => {
+    const button = form.querySelector('[type="submit"]');
+    if (!button) return;
+
+    if (!button.dataset.originalText) button.dataset.originalText = button.textContent;
+    button.disabled = isSubmitting;
+    button.textContent = isSubmitting ? 'Sending...' : button.dataset.originalText;
+  };
+
+  const showSubmitError = (form, message) => {
+    let errorEl = form.querySelector('.form-submit-error');
+    if (!errorEl) {
+      errorEl = document.createElement('p');
+      errorEl.className = 'form-submit-error';
+      form.appendChild(errorEl);
+    }
+
+    errorEl.textContent = message;
+    errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
+  const clearSubmitError = (form) => {
+    const errorEl = form.querySelector('.form-submit-error');
+    if (errorEl) errorEl.textContent = '';
+  };
+
+  const submitToEndpoint = async (form) => {
+    const action = form.getAttribute('action');
+    const method = (form.getAttribute('method') || 'POST').toUpperCase();
+    const thankYouUrl = form.dataset.thankyou || 'thank-you.html';
+
+    if (!action || method === 'GET') {
+      window.location.href = thankYouUrl;
+      return;
+    }
+
+    let response;
+    try {
+      response = await fetch(action, {
+        method,
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+    } catch {
+      throw new Error('Sorry, your enquiry could not be sent. Please try again or contact us directly.');
+    }
+
+    if (response.ok) {
+      window.location.href = thankYouUrl;
+      return;
+    }
+
+    const data = await response.json().catch(() => null);
+    const formspreeErrors = Array.isArray(data?.errors)
+      ? data.errors.map(error => error.message).filter(Boolean).join(' ')
+      : '';
+
+    throw new Error(formspreeErrors || 'Sorry, your enquiry could not be sent. Please try again or contact us directly.');
+  };
+
+  document.querySelectorAll('[data-validate]').forEach(form => {
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      clearSubmitError(form);
+
+      if (!validateForm(form)) {
         form.querySelector('.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      setSubmitting(form, true);
+      try {
+        await submitToEndpoint(form);
+      } catch (error) {
+        showSubmitError(form, error.message);
+        setSubmitting(form, false);
       }
     });
 
     form.querySelectorAll('input, textarea, select').forEach(field => {
-      field.addEventListener('input', () => {
-        field.classList.remove('error');
-        const errEl = field.closest('.form-group')?.querySelector('.form-error');
-        if (errEl) errEl.textContent = '';
-      });
+      field.addEventListener('input', () => clearFieldError(form, field));
+      field.addEventListener('change', () => clearFieldError(form, field));
     });
   });
-
-  // ---- Contact form (no data-validate, simpler) ----
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = contactForm.querySelector('#c-name');
-      const email = contactForm.querySelector('#c-email');
-      const msg = contactForm.querySelector('#c-message');
-      let ok = true;
-      [name, email, msg].forEach(f => {
-        if (f && !f.value.trim()) { f.style.borderColor = 'var(--rose)'; ok = false; }
-        else if (f) f.style.borderColor = '';
-      });
-      if (ok) window.location.href = 'thank-you.html';
-    });
-  }
 
   // ---- Character count ----
   document.querySelectorAll('[data-maxchars]').forEach(el => {

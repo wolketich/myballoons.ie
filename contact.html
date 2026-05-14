@@ -148,7 +148,8 @@
         <h2 class="reveal" style="font-size:1.6rem;margin-bottom:0.75rem;">Quick Enquiry</h2>
         <p class="reveal" style="color:var(--charcoal-light);margin-bottom:2rem;">For a full custom order, use our <a href="custom-order.html" style="color:var(--rose);">detailed order form</a>. For a quick question or general enquiry, use this form.</p>
 
-        <form class="contact-form reveal" id="contactForm" action="thank-you.html" method="GET" novalidate>
+        <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/xzdoqonp" method="POST" data-validate data-thankyou="thank-you.html" novalidate>
+          <input type="hidden" name="_subject" value="New quick enquiry from MyBalloons.ie">
           <div class="form-group">
             <label for="c-name">Your Name <span style="color:var(--rose);">*</span></label>
             <input type="text" id="c-name" name="name" placeholder="e.g. Emma" required>

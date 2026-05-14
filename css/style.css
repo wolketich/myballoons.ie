@@ -255,6 +255,12 @@ body.nav-solid .site-nav:not(.scrolled) .nav-cta {
   border: 1.5px solid var(--rose);
 }
 .btn--primary:hover { background: var(--charcoal); border-color: var(--charcoal); transform: translateY(-2px); box-shadow: var(--shadow-card); }
+.btn:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+  box-shadow: none;
+}
 .btn--outline {
   background: transparent;
   color: var(--charcoal);
@@ -468,6 +474,12 @@ body.nav-solid .site-nav:not(.scrolled) .nav-cta {
 }
 .form-control.error { border-color: var(--rose); }
 .form-error { font-size: 0.8rem; color: var(--rose); }
+.form-submit-error {
+  color: var(--rose);
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: center;
+}
 textarea.form-control { resize: vertical; min-height: 130px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
 .form-full { grid-column: 1 / -1; }
@@ -490,6 +502,7 @@ textarea.form-control { resize: vertical; min-height: 130px; }
   cursor: pointer;
 }
 .form-check input { accent-color: var(--rose); width: 16px; height: 16px; }
+.form-check input.error + .form-check-label { color: var(--rose); }
 .form-check-label { font-size: 0.9rem; color: var(--charcoal-mid); }
 .form-checks { display: flex; flex-wrap: wrap; gap: 1rem; }
 
@@ -1036,6 +1049,11 @@ textarea.form-control { resize: vertical; min-height: 130px; }
 .contact-form select:focus,
 .contact-form textarea:focus {
   outline: none;
+  border-color: var(--rose);
+}
+.contact-form input.error,
+.contact-form select.error,
+.contact-form textarea.error {
   border-color: var(--rose);
 }
 .contact-form textarea { resize: vertical; min-height: 120px; }
