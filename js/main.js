@@ -234,6 +234,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const method = (form.getAttribute('method') || 'POST').toUpperCase();
     const thankYouUrl = form.dataset.thankyou || 'thank-you.html';
 
+    console.log('FORM:', form);
+    console.log('ACTION:', form.getAttribute('action'));
+    console.log('METHOD:', form.getAttribute('method'));
+
     if (!action || method === 'GET') {
       window.location.href = thankYouUrl;
       return;
